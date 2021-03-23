@@ -19,9 +19,10 @@ const promptUser = () =>
         message: 'How will Your porject solve this problem / leave blank if N/A',
     },
     {
-        type: 'input',
+        type: 'list',
+        message: 'Will your project need a table contents',
         name: 'table of contents',
-        message: 'will your project need a table of contents',
+        choices: ['yes', 'no'],
     },
     {
         type: 'input',
@@ -42,7 +43,17 @@ const promptUser = () =>
       type: 'list',
       message: 'Enter your license',
       name: 'license',
-      choices: ['email', 'phone', 'telekinesis'],
+      choices: ['PD', 'MIT','JRL','MPL', 'none'],
+    },
+    {
+      type: 'input',
+      message: 'Whats your github username',
+      name: 'username'
+    },
+    {
+      type: 'input',
+      message: 'Whats your email',
+      name: 'email'
     }
   ]);
 
@@ -74,6 +85,10 @@ ${answers.credits}
 ## License
 ${answers.license}
 
+## Questions??
+message me at
+https://github.com/${answers.username}
+${answers.email}
 `;
 
 
@@ -84,7 +99,7 @@ const init = () => {
   promptUser().then((answers) => {
     try {
       const html = generatereadme(answers);
-      fs.writeFileSync('README.md', html);
+      fs.writeFileSync('README_gen.md', html);
       console.log('Successfully wrote to README.md');
     } catch (error) {
       console.log(error);
