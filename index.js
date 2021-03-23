@@ -73,6 +73,10 @@ ${answers.gendesc2}
 * [Credits](#credits)
 * [License](#license)
 
+
+## License
+This application is under the lisence ${answers.license}
+
 ## Installation
 ${answers.install}
 
@@ -81,9 +85,6 @@ ${answers.usage}
 
 ## Credits
 ${answers.credits}
-
-## License
-${answers.license}
 
 ## Questions??
 message me at
